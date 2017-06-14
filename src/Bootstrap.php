@@ -2,6 +2,8 @@
 declare(strict_types = 1);
 namespace Example;
 require __DIR__ . '/../vendor/autoload.php';
+use Http\HttpRequest;
+use Http\HttpResponse;
 
 error_reporting(E_ALL);
 
@@ -17,3 +19,17 @@ else:
 endif;
 
 $whoops->register();
+
+$request = new HttpRequest($_GET,$_POST,$_COOKIE,$_FILES,$_SERVER);
+$response = new HttpResponse();
+
+$content ='404 - Page not found';
+$response->setContent($content);
+$response->setStatusCode(404);
+
+foreach($response->getHeaders() as $header):
+	header($header,false);
+endforeach;
+
+echo $response->getContent();
+
