@@ -12,7 +12,8 @@
         "patricklouys/http": "~1.4",
         "nikic/fast-route": "^1.2",
         "rdlowrey/auryn": "^1.4",
-        "mustache/mustache": "^2.11"
+        "mustache/mustache": "^2.11",
+        "twig/twig": "~1.20"
     },
     "autoload": {
     	"psr-4": {
